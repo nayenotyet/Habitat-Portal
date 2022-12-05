@@ -697,3 +697,20 @@ header{
 .mx-10{
     margin-left: 200px;
 }
+
+.dot {
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+ }
+ 
+ .vl {
+    border-left: 2px solid #bbb;
+    height: 400px;
+    position: absolute;
+    margin-left: 6px;
+    margin-top: 5px;
+ }
+ 

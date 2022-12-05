@@ -26,7 +26,9 @@ const Login = () => {
             navigate("/landpage");
         } catch (err) {
             setError(err.response.data);
+            // err = "User Not Found";
         }
+        // console.log(err.response.data);
     };
 
     return (

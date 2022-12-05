@@ -77,34 +77,23 @@ export const login = (req, res) => {
            console.log("User ID: " + userInfo.id)
            console.log("Org ID: " + userInfo.organizationId)
        }
-       console.log("before query")
+       console.log("before query after login")
 
        //CHECK REGISTERED USER 
        conn.query(`SELECT Name, Password__c FROM UserPassword__c WHERE Name LIKE '${ inputEmail }' `, (err, data) => {
-           console.log(data.records[0].Password__c)
-           if (err) return res.status(500).json(err);
+           console.log("inside login query, length")
+           console.log(data.records.length)
+        //    if (err) return res.status(500).json(err);
         // CHECK REGISTERED
-           if (data.records[0] === undefined) return res.status(409).json("User Not Found. Please Register");
+           if (data.records.length === 0) return res.status(409).json("User Not Found, Please Register");
         // CHECK PASSWORD
            if (inputPassword !== data.records[0].Password__c)  return res.status(409).json("Wrong password");
-        //    const currentUser = {"email": inputEmail, "password": inputPassword} 
-           return res.status(200).json(inputEmail);
+           const currentUser = {"email": inputEmail, "password": inputPassword} 
+            // return res.status(409).json("User Not Found. Please Register");
+           return res.status(200).json(currentUser.email);
        })
    });
-    /*
-    db.query(q,[req,body,email],(err,data)=>{
-        if(err) return res.json(err);
-        if (data.length === 0) return res.status(404).json("user not found!");
-    })
 
-    //Check password
-    // const isPasswordCorrect = bcrypt.compareSync(
-    //     req.body.password,
-    //     data[0].password
-    // );
-    // if (!isPasswordCorrect)
-    //   return res.status(400).json("Wrong username or password!");
-    */
 };
 
 export const logout = (req, res) => {

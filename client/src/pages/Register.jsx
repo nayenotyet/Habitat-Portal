@@ -9,7 +9,7 @@ const Register = () => {
         email: "",
         password: "",
     });
-    // const [err, setError] = useState(null);
+    const [err, setError] = useState(null);
 
     const navigate = useNavigate();
 
@@ -35,11 +35,13 @@ const Register = () => {
             console.log("before axios in try")
             await axios.post("/auth/register", inputs)
             // console.log(res)
+            setError("User Not Allowed to Register")
             navigate("/login");
         }
         catch(err) {
             console.log(err.response.data)
-            // console.log("User Not Allowed to Register")
+            setError(err.response.data);
+            // setError("User Not Allowed to Register")
         }
         // console.log("registration submitted")
     };
@@ -69,6 +71,7 @@ const Register = () => {
 
 
                         <button className="w-100 btn btn-lg btn-primary" type="submit" onClick={handleSubmit}>Register</button>
+                        {err && <p>{err}</p>}
                         <span>
                            Already have an account? <Link to="/login">Login</Link>
                        </span>
