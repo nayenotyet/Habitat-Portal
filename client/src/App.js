@@ -19,6 +19,7 @@ import {
   const router = createBrowserRouter([
     {
       path: "/",
+      element: <Login />,
       children: [
         {
           path: "/Landpage",
