@@ -6,7 +6,7 @@ import LeftNav from "../components/LeftNav/index";
 
 
 const myEventsList = [
-    {title: "Onboarding Meeting",
+    {title: "Onboarding Meeting2",
         allDay: true,
         start: new Date(2022,9,20),
         end: new Date(2022,9,20)
