@@ -12,7 +12,8 @@ import {
   import Hours from "./pages/Hours";
   import Messages from "./pages/Messages"
   import Orientation from "./pages/Orientation"
-  
+  // import Pings from "./pages/Pings"
+
   import './index.css';
   import 'bootstrap/dist/css/bootstrap.css';
   
@@ -20,13 +21,14 @@ import {
     {
       path: "/",
       element: <Login />,
-      children: [
+    },
+      // children: [
         {
           path: "/Landpage",
           element: <Landpage />,
         },
-      ],
-    },
+      // ],
+    // },
     {
       path: "/register",
       element: <Register />,

@@ -19,7 +19,7 @@ function HeadNav() {
                 </form>
 
                 <ul className="nav col-12 col-lg-auto mb-2 me-lg-auto text-end">
-                    <li><a href="#" className="nav-link px-2 link-secondary">My Pings</a></li>
+                    {/* <li><a href="/Pings" className="nav-link px-2 link-secondary">My Pings</a></li> */}
                     <li><a href="/Calendar" className="nav-link px-2 link-dark">My Calendar</a></li>
                     <li><a href="/Hours" className="nav-link px-2 link-dark">My Work</a></li>
                 </ul>
